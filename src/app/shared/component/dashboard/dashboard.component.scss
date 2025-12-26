@@ -1,0 +1,34 @@
+.student-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+button{
+    background-color: #942589;
+    color: white;
+}
+.student-item:hover {
+  background-color: #f8fafc;
+  padding-left: 20px;
+}
+
+.student-item::before {
+  content: '';
+  width: 4px;
+  height: 100%;
+  background-color: transparent;
+  margin-right: 10px;
+  transition: background-color 0.2s;
+}
+
+.student-item:hover::before {
+  background-color: #3f51b5;
+}
+
+.arrow {
+  font-size: 18px;
+  color: #9ca3af;
+}

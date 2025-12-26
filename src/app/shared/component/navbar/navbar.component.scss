@@ -1,0 +1,29 @@
+
+// .navbar-nav .nav-item :is(:active,:hover,:focus){
+//     background-color: orange;
+// }
+.img{
+    height: 40px;
+}
+
+.navbar-nav .nav-link {
+  color: #e5e7eb;
+  position: relative;
+  padding-bottom: 6px;
+}
+
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #38bdf8;
+  transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+  width: 100%;
+}

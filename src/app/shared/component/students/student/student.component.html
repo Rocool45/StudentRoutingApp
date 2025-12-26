@@ -1,0 +1,66 @@
+<div class="container mt-">
+
+  <!-- Back Button -->
+  <button
+    routerLink="/dashboard"
+    mat-fab
+    color="primary"
+    class="back-btn">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+
+  <div class="row justify-content-center mt-4">
+    <div class="col-md-6">
+
+      <div class="card student-card shadow-lg position-relative">
+
+        <img
+          [src]="studentsArr.imageUrl"
+          class="student-img"
+          alt="student"
+        />
+
+        <div class="card-body text-center">
+
+          <!-- Name -->
+          <h3 class="student-name mb-2">
+            {{ studentsArr.fname }} {{ studentsArr.lname }}
+          </h3>
+
+          <!-- Student ID -->
+          <span class="student-id-badge mb-3 d-inline-block">
+            ID: {{ studentsArr.stdid }}
+          </span>
+
+          <p class="mb-2">
+            📧 <strong>{{ studentsArr.email }}</strong>
+          </p>
+
+          <p class="mb-3">
+            📞 <strong>{{ studentsArr.contact }}</strong>
+          </p>
+
+        </div>
+
+        <div class="card-footer text-center">
+          <button
+            [routerLink]="['/student', studentsArr.stdid, 'editstd']"
+            mat-raised-button
+            color="primary">
+            Edit
+          </button>
+
+          <button
+            (click)="onRemove(studentsArr.stdid)"
+            mat-raised-button
+            color="warn"
+            class="ml-3">
+            Remove
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

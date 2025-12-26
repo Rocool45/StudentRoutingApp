@@ -1,0 +1,85 @@
+<div class="container mt-4">
+    <div class="row">
+       <button routerLink="/dashboard" mat-fab color="primary" class="text-center" >
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+  <div class="card-body">
+    <form #studentForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>First Name</label>
+        <input required #fname="ngModel" ngModel name="fname" class="form-control" />
+         <small
+    class="text-danger"
+    *ngIf="fname.touched && fname.errors?.['required']">
+    First Name is required
+  </small>
+
+      </div>
+
+      <div class="form-group">
+        <label>Last Name</label>
+        <input required #lname="ngModel"  ngModel name="lname" class="form-control" />
+             <small
+    class="text-danger"
+    *ngIf="lname.touched && lname.errors?.['required']">
+    Last Name is required
+  </small>
+
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input required ngModel #email="ngModel" name="email" class="form-control" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" />
+         <small class="text-danger" *ngIf="email.touched && email.errors?.['pattern']">
+  Enter a valid email address
+</small>
+      <small
+    class="text-danger"
+    *ngIf="email.touched && email.errors?.['required']">
+    Email  is required
+  </small>
+
+      </div>
+
+      <div class="form-group">
+        <label>Contact</label>
+        <input required ngModel   #contact="ngModel" name="contact" class="form-control"   pattern="^[6-9][0-9]{9}$" />
+
+  <small
+    class="text-danger"
+    *ngIf="contact.touched && contact.errors?.['pattern']">
+    Enter valid 10-digit mobile number (starts with 6-9)
+  </small>
+      </div>
+
+      <div class="form-group">
+        <label>image Url</label>
+        <input required ngModel name="imageUrl" class="form-control" />
+      </div>
+
+      <button
+        *ngIf="!isInEditMode"
+        mat-raised-button
+        color="primary"
+        class="btn-block"
+      >
+        Add Student
+      </button>
+      <button
+        (click)="onUpdate()"
+        type="button"
+        *ngIf="isInEditMode"
+        mat-raised-button
+        color="primary"
+        class="btn-block"
+      >
+        Update Student
+      </button>
+    </form>
+  </div>
+</div>
+
+        </div>
+    </div>
+</div>

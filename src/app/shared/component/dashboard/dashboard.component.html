@@ -1,0 +1,38 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+
+      <div class="text-center mb-3">
+        <button
+          routerLink="/form"
+          mat-raised-button
+          >
+          + Add Student
+        </button>
+      </div>
+
+      <p class="text-center text-muted mb-2">
+        Click on name to view student details
+      </p>
+
+      <div class="card shadow-sm">
+        <ul class="list-group list-group-flush">
+
+          <li
+            role="button"
+            *ngFor="let std of StudentArr"
+            class="list-group-item student-item"
+            (click)="singleStd(std.stdid)"
+            routerLink="/student">
+
+            <span>{{ std.fname }} {{ std.lname }}</span>
+            <span class="arrow">›</span>
+
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
