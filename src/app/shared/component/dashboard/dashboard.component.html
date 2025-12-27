@@ -15,12 +15,13 @@
         Click on name to view student details
       </p>
 
-      <div class="card shadow-sm">
+      <div class="card shadow-sm"   *ngIf="StudentArr.length > 0; else noData">
         <ul class="list-group list-group-flush">
 
           <li
             role="button"
-            *ngFor="let std of StudentArr"
+            *ngFor="let std of StudentArr;"
+            
             class="list-group-item student-item"
             (click)="singleStd(std.stdid)"
             routerLink="/student">
@@ -32,6 +33,13 @@
 
         </ul>
       </div>
+
+      <ng-template #noData>
+        <div class="alert alert-info text-center mt-3">
+          <strong>No student data found.</strong><br />
+          Please click <b>Add Student</b> to create a new record.
+        </div>
+      </ng-template>
 
     </div>
   </div>

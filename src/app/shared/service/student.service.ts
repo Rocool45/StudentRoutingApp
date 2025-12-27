@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IStudent } from '../model/student';
-import { Observable, of, retry } from 'rxjs';
+import { Observable, of, retry, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -56,7 +56,6 @@ export class StudentService {
     imageUrl: "https://randomuser.me/api/portraits/women/12.jpg"
   }
 ];
-
 
   constructor() { }
 

@@ -13,7 +13,8 @@ import { SnackbarService } from 'src/app/shared/service/snackbar.service';
   styleUrls: ['./student.component.scss']
 })
 export class StudentComponent implements OnInit {
-  studentsArr !:IStudent
+  studentsArr !:IStudent;;
+  
   constructor(
     private _studentservice : StudentService,
     private _route : ActivatedRoute,
@@ -32,6 +33,7 @@ this.getSingleObj()
    .subscribe({
     next :res=>{
       if(res){
+        // this._studentservice.EditObj$.next(res)
         this.studentsArr = res
       }
     }

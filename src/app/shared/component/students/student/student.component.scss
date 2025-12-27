@@ -5,6 +5,16 @@
   z-index: 10;
 }
 
+@media (max-width: 767px) {
+  .back-btn {
+    position: fixed;
+    top: 67px;
+    left: 16px;
+    z-index: 10;
+  }
+}
+
+
 .student-card {
   border-radius: 18px;
   padding-top: 40px;

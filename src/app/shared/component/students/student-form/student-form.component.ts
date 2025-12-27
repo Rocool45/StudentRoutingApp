@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IStudent } from 'src/app/shared/model/student';
 import { SnackbarService } from 'src/app/shared/service/snackbar.service';
@@ -20,17 +19,19 @@ export class StudentFormComponent implements OnInit {
   constructor(
      private _StudentService : StudentService,
         private _UuidService : UuidService,
-        private _MatDialog : MatDialog,
         private _snackbar : SnackbarService,
     private Routes : Router,
     private _AtciveRoute : ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    
    this.patchStd()
   }
 
   patchStd(){
+    console.log();
+    
     setTimeout(() => {
     let id:string = this._AtciveRoute.snapshot.params["id"]
    this._StudentService.singleStd(id)
@@ -67,7 +68,7 @@ export class StudentFormComponent implements OnInit {
         next : res=>{
          if(res){
            this.studentForm.reset()
-          this.isInEditMode = false;
+          // this.isInEditMode = false;
           this._snackbar.openSnackBar("The student is Updated successfully")
            this.Routes.navigate(["dashboard"])
          }
